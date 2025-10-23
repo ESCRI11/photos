@@ -51,13 +51,13 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       {currentPhoto.metadata && (
         <button
           onClick={() => setShowMetadata(!showMetadata)}
-          className={`hidden lg:block absolute top-6 right-20 text-foreground hover:text-muted-foreground transition-colors z-10 ${
-            showMetadata ? "opacity-100" : "opacity-50"
+          className={`hidden lg:block absolute top-6 right-[4.5rem] text-foreground hover:text-muted-foreground transition-colors z-10 ${
+            showMetadata ? "opacity-50" : "opacity-100"
           }`}
           aria-label="Toggle metadata"
           title="Toggle info (I)"
         >
-          <Info size={28} />
+          <Info size={32} />
         </button>
       )}
 
