@@ -1,8 +1,8 @@
 "use client"
 
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
-import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { X, ChevronLeft, ChevronRight, Info } from "lucide-react"
 import { withBasePath } from "@/lib/paths"
 import type { Photo } from "@/lib/collections"
 
@@ -12,9 +12,11 @@ interface LightboxProps {
   onClose: () => void
   onNext: () => void
   onPrevious: () => void
+  showMetadata: boolean
+  setShowMetadata: (show: boolean) => void
 }
 
-export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: LightboxProps) {
+export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, showMetadata, setShowMetadata }: LightboxProps) {
   const currentPhoto = photos[currentIndex]
 
   useEffect(() => {
@@ -22,6 +24,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: 
       if (e.key === "Escape") onClose()
       if (e.key === "ArrowRight") onNext()
       if (e.key === "ArrowLeft") onPrevious()
+      if (e.key === "i" || e.key === "I") setShowMetadata(!showMetadata)
     }
 
     window.addEventListener("keydown", handleKeyDown)
@@ -31,7 +34,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: 
       window.removeEventListener("keydown", handleKeyDown)
       document.body.style.overflow = "unset"
     }
-  }, [onClose, onNext, onPrevious])
+  }, [onClose, onNext, onPrevious, showMetadata, setShowMetadata])
 
   return (
     <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center">
@@ -43,6 +46,20 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: 
       >
         <X size={32} />
       </button>
+
+      {/* Toggle metadata button (only show if metadata exists) */}
+      {currentPhoto.metadata && (
+        <button
+          onClick={() => setShowMetadata(!showMetadata)}
+          className={`hidden lg:block absolute top-6 right-20 text-foreground hover:text-muted-foreground transition-colors z-10 ${
+            showMetadata ? "opacity-100" : "opacity-50"
+          }`}
+          aria-label="Toggle metadata"
+          title="Toggle info (I)"
+        >
+          <Info size={28} />
+        </button>
+      )}
 
       {/* Previous button */}
       {currentIndex > 0 && (
@@ -80,8 +97,8 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: 
         </div>
 
         {/* Metadata Panel */}
-        {currentPhoto.metadata && (
-          <div className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8">
+        {currentPhoto.metadata && showMetadata && (
+          <div className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8 animate-in fade-in slide-in-from-right duration-200">
             <div className="space-y-6">
               <div>
                 <h3 className="font-serif text-2xl text-foreground mb-2">{currentPhoto.alt}</h3>

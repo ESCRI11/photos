@@ -7,6 +7,7 @@ import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 import { Collection } from "@/lib/collections"
 import { withBasePath } from "@/lib/paths"
+import { useMetadataToggle } from "@/hooks/use-metadata-toggle"
 
 interface CollectionViewProps {
   collection: Collection
@@ -15,6 +16,7 @@ interface CollectionViewProps {
 export function CollectionView({ collection }: CollectionViewProps) {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const { showMetadata, setShowMetadata } = useMetadataToggle()
 
   const openLightbox = (index: number) => {
     setCurrentPhotoIndex(index)
@@ -75,6 +77,8 @@ export function CollectionView({ collection }: CollectionViewProps) {
           onClose={closeLightbox}
           onNext={nextPhoto}
           onPrevious={previousPhoto}
+          showMetadata={showMetadata}
+          setShowMetadata={setShowMetadata}
         />
       )}
     </>

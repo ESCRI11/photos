@@ -4,6 +4,7 @@ import Image from "next/image"
 import { useState } from "react"
 import { Lightbox } from "./lightbox"
 import { withBasePath } from "@/lib/paths"
+import { useMetadataToggle } from "@/hooks/use-metadata-toggle"
 
 const photos = [
   {
@@ -107,6 +108,7 @@ const photos = [
 export function Gallery() {
   const [lightboxOpen, setLightboxOpen] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
+  const { showMetadata, setShowMetadata } = useMetadataToggle()
 
   const openLightbox = (index: number) => {
     setCurrentPhotoIndex(index)
@@ -155,6 +157,8 @@ export function Gallery() {
           onClose={closeLightbox}
           onNext={nextPhoto}
           onPrevious={previousPhoto}
+          showMetadata={showMetadata}
+          setShowMetadata={setShowMetadata}
         />
       )}
     </section>
