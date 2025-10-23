@@ -1,0 +1,29 @@
+{
+  "collections": [
+    {
+      "id": "tokyo-nights",
+      "title": "Tokyo Nights",
+      "description": "Urban exploration through the neon-lit streets of Tokyo",
+      "coverImage": "urban-street-photography-monochrome.jpg"
+    },
+    {
+      "id": "portraits",
+      "title": "Portraits",
+      "description": "Intimate moments captured in black and white",
+      "coverImage": "minimalist-black-and-white-portrait-photography.jpg"
+    },
+    {
+      "id": "landscapes",
+      "title": "Landscapes",
+      "description": "Natural beauty in monochrome",
+      "coverImage": "nature-landscape-black-and-white.jpg"
+    },
+    {
+      "id": "architecture",
+      "title": "Architecture",
+      "description": "Geometric forms and structural elegance",
+      "coverImage": "black-and-white-architecture.png"
+    }
+  ]
+}
+
