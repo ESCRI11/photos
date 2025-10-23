@@ -72,7 +72,7 @@ lint-fix: check-pkg-manager ## Run ESLint with auto-fix
 clean: ## Clean build artifacts and dependencies
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"
 	rm -rf .next
-	rm -rf out
+	rm -rf docs
 	rm -rf build
 	rm -rf node_modules
 	rm -rf .pnpm-store
@@ -84,7 +84,7 @@ clean: ## Clean build artifacts and dependencies
 clean-build: ## Clean only build artifacts (keep node_modules)
 	@echo "$(YELLOW)Cleaning build artifacts...$(NC)"
 	rm -rf .next
-	rm -rf out
+	rm -rf docs
 	rm -rf build
 	rm -f *.tsbuildinfo
 
@@ -118,21 +118,21 @@ audit: check-pkg-manager ## Run security audit
 	@echo "$(YELLOW)Running security audit...$(NC)"
 	$(PKG_MANAGER) audit
 
-export: check-pkg-manager ## Export static site to /out directory
+export: check-pkg-manager ## Export static site to /docs directory
 	@echo "$(YELLOW)Exporting static site...$(NC)"
 	@if [ -s "$$HOME/.nvm/nvm.sh" ]; then \
 		bash -c 'export NVM_DIR="$$HOME/.nvm" && [ -s "$$NVM_DIR/nvm.sh" ] && . "$$NVM_DIR/nvm.sh" && $(PKG_MANAGER) run build'; \
 	else \
 		$(PKG_MANAGER) run build; \
 	fi
-	@echo "$(GREEN)✓ Static site exported to /out directory$(NC)"
+	@echo "$(GREEN)✓ Static site exported to /docs directory$(NC)"
 
 preview-export: export ## Build and preview the exported static site
 	@echo "$(YELLOW)Starting local server for static export...$(NC)"
 	@if command -v python3 >/dev/null 2>&1; then \
-		cd out && python3 -m http.server 8000; \
+		cd docs && python3 -m http.server 8000; \
 	elif command -v python >/dev/null 2>&1; then \
-		cd out && python -m SimpleHTTPServer 8000; \
+		cd docs && python -m SimpleHTTPServer 8000; \
 	else \
 		echo "$(RED)Error: Python not found. Install Python or use another static server.$(NC)"; \
 		exit 1; \
@@ -168,11 +168,11 @@ deploy-check: ## Check if ready for GitHub Pages deployment
 	fi
 	@echo ""
 	@echo "$(YELLOW)4. Static Export Test:$(NC)"
-	@if [ -d out ]; then \
-		echo "   $(GREEN)✓$(NC) /out directory exists"; \
+	@if [ -d docs ]; then \
+		echo "   $(GREEN)✓$(NC) /docs directory exists"; \
 		echo "     Preview with: $(GREEN)make preview-export$(NC)"; \
 	else \
-		echo "   $(YELLOW)!$(NC) Run: $(GREEN)make export$(NC) to generate /out directory"; \
+		echo "   $(YELLOW)!$(NC) Run: $(GREEN)make export$(NC) to generate /docs directory"; \
 	fi
 	@echo ""
 	@echo "$(BLUE)Next Steps:$(NC)"

@@ -1,0 +1,7 @@
+1:"$Sreact.fragment"
+2:I[13474,["/_next/static/chunks/5bab93f39577e409.js","/_next/static/chunks/681ed4f4caa12e3e.js","/_next/static/chunks/a198d38665d8be26.js"],"Navigation"]
+3:I[76037,["/_next/static/chunks/5bab93f39577e409.js","/_next/static/chunks/681ed4f4caa12e3e.js","/_next/static/chunks/a198d38665d8be26.js"],"Gallery"]
+4:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+0:{"buildId":"hPJUrKAX-i0JOyoNBMjbg","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-background","children":[["$","$L2",null,{}],["$","$L3",null,{}]]}],[["$","script","script-0",{"src":"/_next/static/chunks/681ed4f4caa12e3e.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/a198d38665d8be26.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null
