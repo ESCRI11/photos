@@ -9,6 +9,7 @@ const nextConfig = {
     unoptimized: true,
   },
   // Only use basePath if deploying to a subdirectory like github.io/repo-name
+  basePath: '/photos',
   // basePath: process.env.NEXT_PUBLIC_BASE_PATH || '',
 }
 

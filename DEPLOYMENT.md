@@ -49,7 +49,7 @@ git push origin main
 The GitHub Action will:
 - Install dependencies
 - Build the Next.js project
-- Export static files to `/out` directory
+- Export static files to `/docs` directory
 - Deploy to GitHub Pages
 
 ### 4. Access Your Site
@@ -133,7 +133,7 @@ If your site loads but CSS/images are broken:
 next.config.mjs         # Next.js config (with export settings)
 public/
   .nojekyll            # Bypass Jekyll processing on GitHub Pages
-out/                   # Generated static files (git-ignored)
+docs/                  # Generated static files (git-ignored)
 ```
 
 ## Additional Resources
