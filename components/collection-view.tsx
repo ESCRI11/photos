@@ -6,6 +6,7 @@ import Link from "next/link"
 import { ArrowLeft } from "lucide-react"
 import { useState } from "react"
 import { Collection } from "@/lib/collections"
+import { withBasePath } from "@/lib/paths"
 
 interface CollectionViewProps {
   collection: Collection
@@ -55,7 +56,7 @@ export function CollectionView({ collection }: CollectionViewProps) {
                 className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span || ""}`}
               >
                 <Image
-                  src={photo.src || "/placeholder.svg"}
+                  src={photo.src || withBasePath("/placeholder.svg")}
                   alt={photo.alt}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-105"

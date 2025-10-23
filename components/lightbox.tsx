@@ -3,6 +3,7 @@
 import { useEffect } from "react"
 import Image from "next/image"
 import { X, ChevronLeft, ChevronRight } from "lucide-react"
+import { withBasePath } from "@/lib/paths"
 
 interface Photo {
   id: number
@@ -73,7 +74,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious }: 
       {/* Image */}
       <div className="relative w-full h-full max-w-7xl max-h-[90vh] mx-auto px-20">
         <Image
-          src={currentPhoto.src || "/placeholder.svg"}
+          src={currentPhoto.src || withBasePath("/placeholder.svg")}
           alt={currentPhoto.alt}
           fill
           className="object-contain"

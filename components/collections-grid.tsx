@@ -1,6 +1,7 @@
 import Image from "next/image"
 import Link from "next/link"
 import { collections } from "@/lib/collections"
+import { withBasePath } from "@/lib/paths"
 
 export function CollectionsGrid() {
   return (
@@ -14,7 +15,7 @@ export function CollectionsGrid() {
               className="group relative overflow-hidden bg-card aspect-[4/3] cursor-pointer"
             >
               <Image
-                src={collection.coverImage || "/placeholder.svg"}
+                src={collection.coverImage || withBasePath("/placeholder.svg")}
                 alt={collection.title}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"

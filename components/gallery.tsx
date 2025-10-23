@@ -3,41 +3,42 @@
 import Image from "next/image"
 import { useState } from "react"
 import { Lightbox } from "./lightbox"
+import { withBasePath } from "@/lib/paths"
 
 const photos = [
   {
     id: 1,
-    src: "/minimalist-black-and-white-portrait-photography.jpg",
+    src: withBasePath("/minimalist-black-and-white-portrait-photography.jpg"),
     alt: "Portrait photography",
     span: "md:col-span-1 md:row-span-2",
   },
   {
     id: 2,
-    src: "/black-and-white-architecture.png",
+    src: withBasePath("/black-and-white-architecture.png"),
     alt: "Architectural photography",
     span: "md:col-span-2 md:row-span-1",
   },
   {
     id: 3,
-    src: "/abstract-minimalist-photography.jpg",
+    src: withBasePath("/abstract-minimalist-photography.jpg"),
     alt: "Abstract photography",
     span: "md:col-span-1 md:row-span-1",
   },
   {
     id: 4,
-    src: "/nature-landscape-black-and-white.jpg",
+    src: withBasePath("/nature-landscape-black-and-white.jpg"),
     alt: "Nature photography",
     span: "md:col-span-1 md:row-span-1",
   },
   {
     id: 5,
-    src: "/urban-street-photography-monochrome.jpg",
+    src: withBasePath("/urban-street-photography-monochrome.jpg"),
     alt: "Street photography",
     span: "md:col-span-1 md:row-span-2",
   },
   {
     id: 6,
-    src: "/fine-art-photography-black-background.jpg",
+    src: withBasePath("/fine-art-photography-black-background.jpg"),
     alt: "Fine art photography",
     span: "md:col-span-2 md:row-span-1",
   },
@@ -76,7 +77,7 @@ export function Gallery() {
               className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span}`}
             >
               <Image
-                src={photo.src || "/placeholder.svg"}
+                src={photo.src || withBasePath("/placeholder.svg")}
                 alt={photo.alt}
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
