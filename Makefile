@@ -76,6 +76,7 @@ clean: ## Clean build artifacts and dependencies
 	rm -rf build
 	rm -rf node_modules
 	rm -rf .pnpm-store
+	rm -f photos
 	rm -f pnpm-lock.yaml
 	rm -f yarn.lock
 	rm -f package-lock.json
@@ -86,6 +87,7 @@ clean-build: ## Clean only build artifacts (keep node_modules)
 	rm -rf .next
 	rm -rf docs
 	rm -rf build
+	rm -f photos
 	rm -f *.tsbuildinfo
 
 format: check-pkg-manager ## Format code (requires prettier to be installed)
@@ -128,15 +130,20 @@ export: check-pkg-manager ## Export static site to /docs directory
 	@echo "$(GREEN)✓ Static site exported to /docs directory$(NC)"
 
 preview-export: export ## Build and preview the exported static site
+	@echo "$(YELLOW)Setting up preview server structure...$(NC)"
+	@rm -f photos
+	@ln -s docs photos
 	@echo "$(YELLOW)Starting local server for static export...$(NC)"
+	@echo "$(BLUE)Preview at: http://localhost:8000/photos/$(NC)"
 	@if command -v python3 >/dev/null 2>&1; then \
-		cd docs && python3 -m http.server 8000; \
+		python3 -m http.server 8000; \
 	elif command -v python >/dev/null 2>&1; then \
-		cd docs && python -m SimpleHTTPServer 8000; \
+		python -m SimpleHTTPServer 8000; \
 	else \
 		echo "$(RED)Error: Python not found. Install Python or use another static server.$(NC)"; \
 		exit 1; \
 	fi
+	@rm -f photos
 
 deploy-check: ## Check if ready for GitHub Pages deployment
 	@echo "$(BLUE)GitHub Pages Deployment Checklist:$(NC)"

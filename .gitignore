@@ -6,6 +6,7 @@
 # next.js
 /.next/
 /out/
+/photos
 
 # GitHub Pages
 
