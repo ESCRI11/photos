@@ -1,6 +1,7 @@
 1:"$Sreact.fragment"
-3:I[97367,["/photos/_next/static/chunks/ff1a16fafef87110.js","/photos/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
-4:"$Sreact.suspense"
-0:{"buildId":"GxPkeDk8ZyBeqcStJSkpF","rsc":["$","$1","c",{"children":["$L2",[["$","script","script-0",{"src":"/photos/_next/static/chunks/acc2244677e39d09.js","async":true}],["$","script","script-1",{"src":"/photos/_next/static/chunks/2da772a5fc108ddb.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
-5:null
-2:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
+2:I[13474,["/photos/_next/static/chunks/5bab93f39577e409.js","/photos/_next/static/chunks/60d146a4d2342710.js","/photos/_next/static/chunks/f359367175e21133.js"],"Navigation"]
+3:I[18093,["/photos/_next/static/chunks/5bab93f39577e409.js","/photos/_next/static/chunks/60d146a4d2342710.js","/photos/_next/static/chunks/f359367175e21133.js"],"CollectionView"]
+4:I[97367,["/photos/_next/static/chunks/ff1a16fafef87110.js","/photos/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+5:"$Sreact.suspense"
+0:{"buildId":"s8F4HiSbSfAMQq3MQ_TFt","rsc":["$","$1","c",{"children":[["$","main",null,{"className":"min-h-screen bg-background","children":[["$","$L2",null,{}],["$","$L3",null,{"collection":{"id":"landscapes","title":"Landscapes","description":"Natural beauty in monochrome","coverImage":"/photos/nature-landscape-black-and-white.jpg","photos":[{"id":1,"src":"/photos/nature-landscape-black-and-white.jpg","alt":"Nature landscape","span":"md:col-span-2 md:row-span-1","metadata":{"camera":"Canon EOS R5","lens":"Canon RF 24-70mm f/2.8","focalLength":"24mm","aperture":"f/11","shutterSpeed":"1/500s","iso":"100","date":"May 12, 2024","location":"Yosemite, California"}},{"id":2,"src":"/photos/abstract-minimalist-photography.jpg","alt":"Abstract nature","span":"md:col-span-1 md:row-span-2","metadata":{"camera":"Fujifilm GFX 100S","lens":"Fujinon GF 63mm f/2.8","focalLength":"63mm","aperture":"f/5.6","shutterSpeed":"1/250s","iso":"200","date":"May 15, 2024","location":"Big Sur, California"}}]}}]]}],[["$","script","script-0",{"src":"/photos/_next/static/chunks/60d146a4d2342710.js","async":true}],["$","script","script-1",{"src":"/photos/_next/static/chunks/f359367175e21133.js","async":true}]],["$","$L4",null,{"children":["$","$5",null,{"name":"Next.MetadataOutlet","children":"$@6"}]}]]}],"loading":null,"isPartial":false}
+6:null

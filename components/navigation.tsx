@@ -13,7 +13,6 @@ export function Navigation() {
     { href: "/", label: "Work" },
     { href: "/topics", label: "Topics" }, // Added Topics link to navigation
     { href: "/about", label: "About" },
-    { href: "/contact", label: "Contact" },
   ]
 
   return (

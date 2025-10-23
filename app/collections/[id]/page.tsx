@@ -10,12 +10,13 @@ export function generateStaticParams() {
   }))
 }
 
-export default function CollectionPage({
+export default async function CollectionPage({
   params,
 }: {
-  params: { id: string }
+  params: Promise<{ id: string }>
 }) {
-  const collection = getCollectionById(params.id)
+  const { id } = await params
+  const collection = getCollectionById(id)
 
   if (!collection) {
     notFound()
