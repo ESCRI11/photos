@@ -4,7 +4,10 @@
       "id": "portrait-1",
       "file": "minimalist-black-and-white-portrait-photography.jpg",
       "alt": "Portrait photography",
-      "display": ["work", "topics.portraits"],
+      "display": [
+        "work",
+        "topics.portraits"
+      ],
       "span": "md:col-span-1 md:row-span-2",
       "metadata": {
         "camera": "Nikon Z9",
@@ -21,7 +24,11 @@
       "id": "architecture-1",
       "file": "black-and-white-architecture.png",
       "alt": "Architectural photography",
-      "display": ["work", "topics.architecture", "topics.tokyo-nights"],
+      "display": [
+        "work",
+        "topics.architecture",
+        "topics.tokyo-nights"
+      ],
       "span": "md:col-span-2 md:row-span-1",
       "metadata": {
         "camera": "Sony A7R V",
@@ -38,7 +45,11 @@
       "id": "abstract-1",
       "file": "abstract-minimalist-photography.jpg",
       "alt": "Abstract photography",
-      "display": ["work", "topics.tokyo-nights", "topics.landscapes"],
+      "display": [
+        "work",
+        "topics.tokyo-nights",
+        "topics.landscapes"
+      ],
       "span": "md:col-span-1 md:row-span-1",
       "metadata": {
         "camera": "Canon EOS R5",
@@ -55,7 +66,10 @@
       "id": "nature-1",
       "file": "nature-landscape-black-and-white.jpg",
       "alt": "Nature photography",
-      "display": ["work", "topics.landscapes"],
+      "display": [
+        "work",
+        "topics.landscapes"
+      ],
       "span": "md:col-span-1 md:row-span-1",
       "metadata": {
         "camera": "Canon EOS R5",
@@ -72,7 +86,10 @@
       "id": "street-1",
       "file": "urban-street-photography-monochrome.jpg",
       "alt": "Street photography",
-      "display": ["work", "topics.tokyo-nights"],
+      "display": [
+        "work",
+        "topics.tokyo-nights"
+      ],
       "span": "md:col-span-1 md:row-span-2",
       "metadata": {
         "camera": "Sony A7III",
@@ -89,7 +106,10 @@
       "id": "fine-art-1",
       "file": "fine-art-photography-black-background.jpg",
       "alt": "Fine art photography",
-      "display": ["work", "topics.portraits"],
+      "display": [
+        "work",
+        "topics.portraits"
+      ],
       "span": "md:col-span-2 md:row-span-1",
       "metadata": {
         "camera": "Sony A7R IV",
@@ -106,7 +126,9 @@
       "id": "architecture-2",
       "file": "minimalist-architectural-photography-black-backgro.jpg",
       "alt": "Minimalist architecture",
-      "display": ["topics.architecture"],
+      "display": [
+        "topics.architecture"
+      ],
       "span": "md:col-span-1 md:row-span-1",
       "metadata": {
         "camera": "Nikon Z8",
@@ -118,7 +140,44 @@
         "date": "June 7, 2024",
         "location": "New York, New York"
       }
+    },
+    {
+      "id": "oqwwnkhp7ema",
+      "file": "DSC_0413.JPG",
+      "alt": "Photography - DSC_0413.JPG",
+      "display": [
+        "topics.solothurn-trip"
+      ],
+      "span": "md:col-span-1 md:row-span-1",
+      "metadata": {
+        "camera": "NIKON Z f",
+        "lens": "NIKKOR Z 40mm f/2",
+        "focalLength": "40.0 mm",
+        "aperture": "f/5.0",
+        "shutterSpeed": "1/400s",
+        "iso": "100",
+        "date": "July 18, 2025",
+        "location": "Solothurn, Suissa"
+      }
+    },
+    {
+      "id": "2cup2x30ityt",
+      "file": "DSC_0415.JPG",
+      "alt": "Photography - DSC_0415.JPG",
+      "display": [
+        "topics.solothurn-trip"
+      ],
+      "span": "md:col-span-2 md:row-span-1",
+      "metadata": {
+        "camera": "NIKON Z f",
+        "lens": "NIKKOR Z 40mm f/2",
+        "focalLength": "40.0 mm",
+        "aperture": "f/5.0",
+        "shutterSpeed": "1/640s",
+        "iso": "100",
+        "date": "July 18, 2025",
+        "location": "Solothurn, Suissa"
+      }
     }
   ]
 }
-

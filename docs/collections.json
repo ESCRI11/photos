@@ -23,7 +23,12 @@
       "title": "Architecture",
       "description": "Geometric forms and structural elegance",
       "coverImage": "black-and-white-architecture.png"
+    },
+    {
+      "id": "solothurn-trip",
+      "title": "Solothurn",
+      "description": "Viatje d'estiu per Suissa Central",
+      "coverImage": "DSC_0413.JPG"
     }
   ]
 }
-

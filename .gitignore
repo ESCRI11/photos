@@ -8,6 +8,10 @@
 /out/
 /photos
 
+# to processed photos
+/to_proces
+
+
 # GitHub Pages
 
 # production
