@@ -14,9 +14,10 @@ interface LightboxProps {
   onPrevious: () => void
   showMetadata: boolean
   setShowMetadata: (show: boolean) => void
+  collectionTitle?: string
 }
 
-export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, showMetadata, setShowMetadata }: LightboxProps) {
+export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, showMetadata, setShowMetadata, collectionTitle }: LightboxProps) {
   const currentPhoto = photos[currentIndex]
 
   useEffect(() => {
@@ -101,7 +102,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
           <div className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8 animate-in fade-in slide-in-from-right duration-200">
             <div className="space-y-6">
               <div>
-                <h3 className="font-serif text-2xl text-foreground mb-2">{currentPhoto.alt}</h3>
+                <h3 className="font-serif text-2xl text-foreground mb-2">{collectionTitle || currentPhoto.alt}</h3>
                 <p className="text-xs text-muted-foreground uppercase tracking-wide">
                   {currentIndex + 1} / {photos.length}
                 </p>

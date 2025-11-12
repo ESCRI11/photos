@@ -79,6 +79,7 @@ export function CollectionView({ collection }: CollectionViewProps) {
           onPrevious={previousPhoto}
           showMetadata={showMetadata}
           setShowMetadata={setShowMetadata}
+          collectionTitle={collection.title}
         />
       )}
     </>
