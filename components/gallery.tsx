@@ -36,7 +36,7 @@ export function Gallery({ photos }: GalleryProps) {
   return (
     <section id="work" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-4xl md:text-5xl text-foreground mb-16 text-center">Selected Work</h2>
+        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-center">Selected Work</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
           {photos.map((photo, index) => (
             <div
