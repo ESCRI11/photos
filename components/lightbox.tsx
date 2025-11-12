@@ -178,10 +178,12 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
         )}
       </div>
 
-      {/* Counter for mobile/tablet (when metadata panel is hidden) */}
-      <div className="lg:hidden absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-sm tracking-wide">
-        {currentIndex + 1} / {photos.length}
-      </div>
+      {/* Counter for mobile/tablet or when metadata is hidden */}
+      {(!showMetadata || !currentPhoto.metadata) && (
+        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-sm tracking-wide">
+          {currentIndex + 1} / {photos.length}
+        </div>
+      )}
     </div>
   )
 }
