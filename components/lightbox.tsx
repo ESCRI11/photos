@@ -38,10 +38,16 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
   }, [onClose, onNext, onPrevious, showMetadata, setShowMetadata])
 
   return (
-    <div className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center">
+    <div 
+      className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center"
+      onClick={onClose}
+    >
       {/* Close button */}
       <button
-        onClick={onClose}
+        onClick={(e) => {
+          e.stopPropagation()
+          onClose()
+        }}
         className="absolute top-6 right-6 text-foreground hover:text-muted-foreground transition-colors z-10"
         aria-label="Close lightbox"
       >
@@ -51,7 +57,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       {/* Toggle metadata button (only show if metadata exists) */}
       {currentPhoto.metadata && (
         <button
-          onClick={() => setShowMetadata(!showMetadata)}
+          onClick={(e) => {
+            e.stopPropagation()
+            setShowMetadata(!showMetadata)
+          }}
           className={`hidden lg:block absolute top-6 right-[4.5rem] text-foreground hover:text-muted-foreground transition-colors z-10 ${
             showMetadata ? "opacity-50" : "opacity-100"
           }`}
@@ -65,7 +74,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       {/* Previous button */}
       {currentIndex > 0 && (
         <button
-          onClick={onPrevious}
+          onClick={(e) => {
+            e.stopPropagation()
+            onPrevious()
+          }}
           className="absolute left-6 top-1/2 -translate-y-1/2 text-foreground hover:text-muted-foreground transition-colors z-10"
           aria-label="Previous image"
         >
@@ -76,7 +88,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       {/* Next button */}
       {currentIndex < photos.length - 1 && (
         <button
-          onClick={onNext}
+          onClick={(e) => {
+            e.stopPropagation()
+            onNext()
+          }}
           className="absolute right-6 top-1/2 -translate-y-1/2 text-foreground hover:text-muted-foreground transition-colors z-10"
           aria-label="Next image"
         >
@@ -85,9 +100,14 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       )}
 
       {/* Main Content Container */}
-      <div className="w-full h-full max-w-7xl mx-auto px-20 py-16 flex items-center gap-8">
+      <div 
+        className="w-full h-full max-w-7xl mx-auto px-20 py-16 flex items-center gap-8"
+      >
         {/* Image */}
-        <div className="relative flex-1 h-full">
+        <div 
+          className="relative flex-1 h-full"
+          onClick={(e) => e.stopPropagation()}
+        >
           <Image
             src={currentPhoto.src || withBasePath("/placeholder.svg")}
             alt={currentPhoto.alt}
@@ -99,7 +119,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
 
         {/* Metadata Panel */}
         {currentPhoto.metadata && showMetadata && (
-          <div className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8 animate-in fade-in slide-in-from-right duration-200">
+          <div 
+            className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8 animate-in fade-in slide-in-from-right duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
             <div className="space-y-6">
               <div>
                 <h3 className="font-serif text-2xl text-foreground mb-2">{collectionTitle || currentPhoto.alt}</h3>
@@ -180,7 +203,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
 
       {/* Counter for mobile/tablet or when metadata is hidden */}
       {(!showMetadata || !currentPhoto.metadata) && (
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-sm tracking-wide">
+        <div 
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-sm tracking-wide"
+          onClick={(e) => e.stopPropagation()}
+        >
           {currentIndex + 1} / {photos.length}
         </div>
       )}
