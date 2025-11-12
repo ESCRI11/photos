@@ -77,10 +77,10 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       {currentIndex < photos.length - 1 && (
         <button
           onClick={onNext}
-          className="absolute right-6 top-1/2 -translate-y-1/2 text-foreground hover:text-muted-foreground transition-colors z-10 md:right-auto md:left-1/2 md:-translate-x-1/2 md:top-auto md:bottom-6 md:translate-y-0"
+          className="absolute right-6 top-1/2 -translate-y-1/2 text-foreground hover:text-muted-foreground transition-colors z-10"
           aria-label="Next image"
         >
-          <ChevronRight size={48} className="md:rotate-90" />
+          <ChevronRight size={48} />
         </button>
       )}
 
