@@ -55,7 +55,8 @@ export function CollectionView({ collection }: CollectionViewProps) {
               <div
                 key={photo.id}
                 onClick={() => openLightbox(index)}
-                className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span || ""}`}
+                className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span || ""} animate-fade-in-up`}
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <Image
                   src={photo.src || withBasePath("/placeholder.svg")}

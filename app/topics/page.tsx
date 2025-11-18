@@ -7,7 +7,7 @@ export default function TopicsPage() {
       <Navigation />
       <div className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-center">Topics</h1>
+          <h1 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-center md:hidden">Topics</h1>
           <CollectionsGrid />
         </div>
       </div>

@@ -12,11 +12,10 @@ export function Navigation() {
   const links = [
     { href: "/", label: "Work" },
     { href: "/topics", label: "Topics" }, // Added Topics link to navigation
-    { href: "/about", label: "About" },
   ]
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-sm border-b border-border">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border/50 transition-all duration-300">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="font-serif text-xl tracking-tight text-foreground">
@@ -25,17 +24,23 @@ export function Navigation() {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`text-sm transition-colors tracking-wide uppercase ${
-                  pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive =
+                pathname === link.href ||
+                (link.href !== "/" && pathname.startsWith(link.href)) ||
+                (link.href === "/topics" && pathname.startsWith("/collections"))
+
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-sm transition-colors tracking-wide uppercase ${isActive ? "text-primary font-medium" : "text-muted-foreground hover:text-primary"
+                    }`}
+                >
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
 
           {/* Mobile Menu Button */}
@@ -53,9 +58,8 @@ export function Navigation() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setIsOpen(false)}
-                  className={`text-sm transition-colors tracking-wide uppercase ${
-                    pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
-                  }`}
+                  className={`text-sm transition-colors tracking-wide uppercase ${pathname === link.href ? "text-foreground" : "text-muted-foreground hover:text-foreground"
+                    }`}
                 >
                   {link.label}
                 </Link>

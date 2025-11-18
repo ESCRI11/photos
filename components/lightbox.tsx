@@ -38,7 +38,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
   }, [onClose, onNext, onPrevious, showMetadata, setShowMetadata])
 
   return (
-    <div 
+    <div
       className="fixed inset-0 z-50 bg-background/95 flex items-center justify-center"
       onClick={onClose}
     >
@@ -61,9 +61,8 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
             e.stopPropagation()
             setShowMetadata(!showMetadata)
           }}
-          className={`hidden lg:block absolute top-6 right-[4.5rem] text-foreground hover:text-muted-foreground transition-colors z-10 ${
-            showMetadata ? "opacity-50" : "opacity-100"
-          }`}
+          className={`hidden lg:block absolute top-6 right-[4.5rem] text-foreground hover:text-muted-foreground transition-colors z-10 ${showMetadata ? "opacity-50" : "opacity-100"
+            }`}
           aria-label="Toggle metadata"
           title="Toggle info (I)"
         >
@@ -100,13 +99,12 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
       )}
 
       {/* Main Content Container */}
-      <div 
-        className="w-full h-full max-w-7xl mx-auto px-20 py-16 flex items-center gap-8"
+      <div
+        className="w-full h-full max-w-[95vw] mx-auto px-4 py-8 flex items-center gap-8"
       >
         {/* Image */}
-        <div 
-          className="relative flex-1 h-full"
-          onClick={(e) => e.stopPropagation()}
+        <div
+          className="relative flex-1 h-full flex items-center justify-center"
         >
           <Image
             src={currentPhoto.src || withBasePath("/placeholder.svg")}
@@ -119,7 +117,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
 
         {/* Metadata Panel */}
         {currentPhoto.metadata && showMetadata && (
-          <div 
+          <div
             className="hidden lg:block w-80 h-full overflow-y-auto border-l border-border pl-8 animate-in fade-in slide-in-from-right duration-200"
             onClick={(e) => e.stopPropagation()}
           >
@@ -133,7 +131,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
 
               <div className="space-y-4 pt-4 border-t border-border">
                 <h4 className="text-xs uppercase tracking-wide text-muted-foreground">Technical Details</h4>
-                
+
                 {currentPhoto.metadata.camera && (
                   <div>
                     <p className="text-xs uppercase tracking-wide text-muted-foreground mb-1">Camera</p>
@@ -203,7 +201,7 @@ export function Lightbox({ photos, currentIndex, onClose, onNext, onPrevious, sh
 
       {/* Counter for mobile/tablet or when metadata is hidden */}
       {(!showMetadata || !currentPhoto.metadata) && (
-        <div 
+        <div
           className="absolute bottom-6 left-1/2 -translate-x-1/2 text-muted-foreground text-sm tracking-wide"
           onClick={(e) => e.stopPropagation()}
         >

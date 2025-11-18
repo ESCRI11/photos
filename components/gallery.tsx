@@ -36,13 +36,14 @@ export function Gallery({ photos }: GalleryProps) {
   return (
     <section id="work" className="py-24 px-6">
       <div className="max-w-7xl mx-auto">
-        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-center">Selected Work</h2>
+        <h2 className="font-serif text-3xl md:text-4xl text-foreground mb-12 text-center md:hidden">Selected Work</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 auto-rows-[300px]">
           {photos.map((photo, index) => (
             <div
               key={photo.id}
               onClick={() => openLightbox(index)}
-              className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span}`}
+              className={`relative overflow-hidden bg-card group cursor-pointer ${photo.span} animate-fade-in-up`}
+              style={{ animationDelay: `${index * 100}ms` }}
             >
               <Image
                 src={photo.src || withBasePath("/placeholder.svg")}
@@ -50,7 +51,7 @@ export function Gallery({ photos }: GalleryProps) {
                 fill
                 className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-background/0 group-hover:bg-background/20 transition-colors duration-500" />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-500" />
             </div>
           ))}
         </div>
