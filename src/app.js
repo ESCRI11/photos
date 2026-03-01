@@ -69,14 +69,14 @@
 
     if (photo.metadata) {
       html += '<div class="lb-meta-section">'
-      html += '<h4>Technical Details</h4>'
-      html += metaField('Camera', m.camera)
-      html += metaField('Lens', m.lens)
+      html += '<h4>Detalls tècnics</h4>'
+      html += metaField('Càmera', m.camera)
+      html += metaField('Objectiu', m.lens)
       if (m.focalLength || m.aperture || m.shutterSpeed || m.iso) {
         html += '<div class="lb-meta-grid">'
-        html += metaField('Focal Length', m.focalLength)
-        html += metaField('Aperture', m.aperture)
-        html += metaField('Shutter Speed', m.shutterSpeed)
+        html += metaField('Focal', m.focalLength)
+        html += metaField('Obertura', m.aperture)
+        html += metaField('Obturador', m.shutterSpeed)
         html += metaField('ISO', m.iso)
         html += '</div>'
       }
@@ -84,8 +84,8 @@
 
       if (m.date || m.location) {
         html += '<div class="lb-meta-section">'
-        html += metaField('Date', m.date)
-        html += metaField('Location', m.location)
+        html += metaField('Data', m.date)
+        html += metaField('Lloc', m.location)
         html += '</div>'
       }
     }

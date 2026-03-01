@@ -26,7 +26,7 @@ const icons = {
 function layout(title, content, { activePage = 'work' } = {}) {
   const year = new Date().getFullYear()
   return `<!DOCTYPE html>
-<html lang="en">
+<html lang="ca">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,17 +39,17 @@ function layout(title, content, { activePage = 'work' } = {}) {
       <div class="nav-row">
         <a href="${BASE}/" class="nav-brand font-serif">Xavier Escrib&agrave; Montagut</a>
         <div class="nav-links-desktop">
-          <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Work</a>
-          <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Topics</a>
+          <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Fotos</a>
+          <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Àlbums</a>
         </div>
-        <button id="menu-toggle" class="nav-menu-btn" aria-label="Toggle menu">
+        <button id="menu-toggle" class="nav-menu-btn" aria-label="Obrir el menú">
           <span id="menu-icon-open">${icons.Menu}</span>
           <span id="menu-icon-close" style="display:none">${icons.XSmall}</span>
         </button>
       </div>
       <div id="mobile-menu" class="nav-mobile">
-        <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Work</a>
-        <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Topics</a>
+        <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Fotos</a>
+        <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Àlbums</a>
       </div>
     </div>
   </nav>
@@ -60,16 +60,16 @@ function layout(title, content, { activePage = 'work' } = {}) {
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; ${year} Xavier Escrib&agrave; Montagut. All rights reserved.</p>
+      <p>&copy; ${year} Xavier Escrib&agrave; Montagut. Tots els drets reservats.</p>
     </div>
   </footer>
 
   <!-- Lightbox (shared, populated by JS) -->
-  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo lightbox">
-    <button id="lb-close" class="lb-close-btn" aria-label="Close lightbox">${icons.X}</button>
-    <button id="lb-info"  class="lb-info-btn"  aria-label="Toggle info (I)" title="Toggle info (I)">${icons.Info}</button>
-    <button id="lb-prev"  class="lb-prev-btn"  aria-label="Previous image">${icons.ChevronLeft}</button>
-    <button id="lb-next"  class="lb-next-btn"  aria-label="Next image">${icons.ChevronRight}</button>
+  <div id="lightbox" role="dialog" aria-modal="true" aria-label="Visualitzador de fotos">
+    <button id="lb-close" class="lb-close-btn" aria-label="Tancar">${icons.X}</button>
+    <button id="lb-info"  class="lb-info-btn"  aria-label="Informació (I)" title="Informació (I)">${icons.Info}</button>
+    <button id="lb-prev"  class="lb-prev-btn"  aria-label="Imatge anterior">${icons.ChevronLeft}</button>
+    <button id="lb-next"  class="lb-next-btn"  aria-label="Imatge següent">${icons.ChevronRight}</button>
     <div class="lb-content" id="lb-backdrop">
       <div class="lb-image-wrapper">
         <img id="lb-img" src="" alt="">
@@ -119,7 +119,7 @@ function photoSrc(file) {
 function photoItem(photo, index) {
   const spanClass = photo.span ? ' ' + photo.span : ''
   const delay = index * 100
-  return `<div class="photo-item${spanClass} animate-fade-in-up" data-index="${index}" style="animation-delay:${delay}ms" role="button" tabindex="0" aria-label="Open photo: ${escapeHtml(photo.alt)}">
+  return `<div class="photo-item${spanClass} animate-fade-in-up" data-index="${index}" style="animation-delay:${delay}ms" role="button" tabindex="0" aria-label="Obrir foto: ${escapeHtml(photo.alt)}">
       <img src="${photoSrc(photo.file)}" alt="${escapeHtml(photo.alt)}" loading="${index < 3 ? 'eager' : 'lazy'}">
       <div class="photo-overlay"></div>
     </div>`
@@ -149,7 +149,7 @@ function generateIndex(photos) {
   const content = `
     <section class="gallery-section">
       <div class="gallery-container">
-        <h2 class="font-serif">Selected Work</h2>
+        <h2 class="font-serif">Les meves fotos</h2>
         <div class="photo-grid">
           ${grid}
         </div>
@@ -159,7 +159,7 @@ function generateIndex(photos) {
 
   write(
     path.join(DOCS_DIR, 'index.html'),
-    layout('Portfolio — Xavier Escribà', content)
+    layout('Fotos — Xavier Escribà Montagut', content)
   )
 }
 
@@ -187,7 +187,7 @@ function generateTopics(collections, photos) {
 
   write(
     path.join(DOCS_DIR, 'topics', 'index.html'),
-    layout('Topics — Portfolio', content, { activePage: 'topics' })
+    layout('Àlbums — Xavier Escribà Montagut', content, { activePage: 'topics' })
   )
 }
 
@@ -204,7 +204,7 @@ function generateCollection(col, photos) {
       <div class="collection-container">
         <a href="${BASE}/topics/" class="back-link">
           ${icons.ArrowLeft}
-          Back to Topics
+          Tornar als àlbums
         </a>
         <div class="collection-header">
           <h1 class="font-serif tracking-tight">${escapeHtml(col.title)}</h1>
@@ -219,7 +219,7 @@ function generateCollection(col, photos) {
 
   write(
     path.join(DOCS_DIR, 'collections', col.id, 'index.html'),
-    layout(`${col.title} — Portfolio`, content, { activePage: 'topics' })
+    layout(`${col.title} — Xavier Escribà Montagut`, content, { activePage: 'topics' })
   )
 }
 
