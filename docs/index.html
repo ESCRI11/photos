@@ -11,9 +11,18 @@
     <div class="nav-inner">
       <div class="nav-row">
         <a href="/photos/" class="nav-brand font-serif">Xavier Escrib&agrave; Montagut</a>
-        <div class="nav-links-desktop">
-          <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-          <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <div class="nav-end">
+          <div class="nav-links-desktop">
+            <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+            <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+          </div>
+          <div class="lang-selector">
+            <button class="lang-btn" data-lang="ca">CAT</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="it">IT</button>
+          </div>
         </div>
         <button id="menu-toggle" class="nav-menu-btn" aria-label="Obrir el menú">
           <span id="menu-icon-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
@@ -21,8 +30,15 @@
         </button>
       </div>
       <div id="mobile-menu" class="nav-mobile">
-        <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+        <div class="lang-selector lang-selector-mobile">
+          <button class="lang-btn" data-lang="ca">CAT</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -31,7 +47,7 @@
     
     <section class="gallery-section">
       <div class="gallery-container">
-        <h2 class="font-serif">Les meves fotos</h2>
+        <h2 class="font-serif" data-i18n="gallery.heading">Les meves fotos</h2>
         <div class="photo-grid">
           <div class="photo-item md:col-span-1 md:row-span-2 animate-fade-in-up" data-index="0" style="animation-delay:0ms" role="button" tabindex="0" aria-label="Obrir foto: Portrait photography">
       <img src="/photos/minimalist-black-and-white-portrait-photography.jpg" alt="Portrait photography" loading="eager">
@@ -65,7 +81,7 @@
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. Tots els drets reservats.</p>
+      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. <span data-i18n="footer.rights">Tots els drets reservats.</span></p>
     </div>
   </footer>
 
@@ -84,6 +100,7 @@
     <div id="lb-counter"></div>
   </div>
 
+  <script src="/photos/i18n.js"></script>
   <script src="/photos/app.js"></script>
 </body>
 </html>

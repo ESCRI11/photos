@@ -69,23 +69,23 @@
 
     if (photo.metadata) {
       html += '<div class="lb-meta-section">'
-      html += '<h4>Detalls tècnics</h4>'
-      html += metaField('Càmera', m.camera)
-      html += metaField('Objectiu', m.lens)
+      html += '<h4>' + window.t('meta.technical') + '</h4>'
+      html += metaField(window.t('meta.camera'), m.camera)
+      html += metaField(window.t('meta.lens'), m.lens)
       if (m.focalLength || m.aperture || m.shutterSpeed || m.iso) {
         html += '<div class="lb-meta-grid">'
-        html += metaField('Focal', m.focalLength)
-        html += metaField('Obertura', m.aperture)
-        html += metaField('Obturador', m.shutterSpeed)
-        html += metaField('ISO', m.iso)
+        html += metaField(window.t('meta.focal'), m.focalLength)
+        html += metaField(window.t('meta.aperture'), m.aperture)
+        html += metaField(window.t('meta.shutter'), m.shutterSpeed)
+        html += metaField(window.t('meta.iso'), m.iso)
         html += '</div>'
       }
       html += '</div>'
 
       if (m.date || m.location) {
         html += '<div class="lb-meta-section">'
-        html += metaField('Data', m.date)
-        html += metaField('Lloc', m.location)
+        html += metaField(window.t('meta.date'), m.date)
+        html += metaField(window.t('meta.location'), m.location)
         html += '</div>'
       }
     }
@@ -157,6 +157,11 @@
     localStorage.setItem(STORAGE_KEY, String(showMetadata))
     applyMetadataState()
   }
+
+  // Re-render metadata panel when language changes
+  document.addEventListener('langchange', function () {
+    if (currentIndex >= 0) renderMeta(photos[currentIndex], currentIndex)
+  })
 
   // Wire up photo grid clicks
   document.querySelectorAll('[data-index]').forEach(function (el) {

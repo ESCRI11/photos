@@ -92,8 +92,8 @@ nav.site-nav {
 .nav-row {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   height: 4rem;
+  gap: 2rem;
 }
 
 .nav-brand {
@@ -101,6 +101,14 @@ nav.site-nav {
   font-size: 1.1rem;
   font-weight: 400;
   letter-spacing: 0.02em;
+  margin-right: auto;
+}
+
+/* Right-side nav group (links + lang selector) */
+.nav-end {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
 }
 
 /* Desktop links */
@@ -129,6 +137,37 @@ nav.site-nav {
 .nav-link.active {
   color: oklch(0.78 0.13 80);
   font-weight: 500;
+}
+
+/* Language selector */
+.lang-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.lang-btn {
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: var(--muted-foreground);
+  transition: color 0.2s;
+  padding: 0;
+}
+
+.lang-btn:hover { color: var(--foreground); }
+
+.lang-btn.active { color: oklch(0.78 0.13 80); }
+
+.lang-sep {
+  font-size: 0.6rem;
+  color: var(--border);
+  user-select: none;
+}
+
+.lang-selector-mobile {
+  margin-top: 0.5rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--border);
 }
 
 /* Mobile menu button */

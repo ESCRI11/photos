@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Landscapes — Xavier Escribà Montagut</title>
+  <title>Paisatges — Xavier Escribà Montagut</title>
   <link rel="stylesheet" href="/photos/styles.css">
 </head>
 <body>
@@ -11,9 +11,18 @@
     <div class="nav-inner">
       <div class="nav-row">
         <a href="/photos/" class="nav-brand font-serif">Xavier Escrib&agrave; Montagut</a>
-        <div class="nav-links-desktop">
-          <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-          <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <div class="nav-end">
+          <div class="nav-links-desktop">
+            <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+            <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+          </div>
+          <div class="lang-selector">
+            <button class="lang-btn" data-lang="ca">CAT</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="it">IT</button>
+          </div>
         </div>
         <button id="menu-toggle" class="nav-menu-btn" aria-label="Obrir el menú">
           <span id="menu-icon-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
@@ -21,8 +30,15 @@
         </button>
       </div>
       <div id="mobile-menu" class="nav-mobile">
-        <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+        <div class="lang-selector lang-selector-mobile">
+          <button class="lang-btn" data-lang="ca">CAT</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -33,11 +49,11 @@
       <div class="collection-container">
         <a href="/photos/topics/" class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Tornar als àlbums
+          <span data-i18n="back">Tornar als àlbums</span>
         </a>
         <div class="collection-header">
-          <h1 class="font-serif tracking-tight">Landscapes</h1>
-          <p class="tracking-wide text-muted">Natural beauty in monochrome</p>
+          <h1 class="font-serif tracking-tight" data-i18n="collection.landscapes.title">Paisatges</h1>
+          <p class="tracking-wide text-muted" data-i18n="collection.landscapes.description">La bellesa natural en monocrom</p>
         </div>
         <div class="photo-grid">
           <div class="photo-item md:col-span-1 md:row-span-1 animate-fade-in-up" data-index="0" style="animation-delay:0ms" role="button" tabindex="0" aria-label="Obrir foto: Abstract photography">
@@ -52,11 +68,12 @@
       </div>
     </section>
     <script id="page-photos" type="application/json">[{"id":"abstract-1","src":"/photos/abstract-minimalist-photography.jpg","alt":"Abstract photography","metadata":{"camera":"Canon EOS R5","lens":"Canon RF 50mm f/1.2","focalLength":"50mm","aperture":"f/2.8","shutterSpeed":"1/125s","iso":"800","date":"March 17, 2024","location":"Roppongi, Tokyo"}},{"id":"nature-1","src":"/photos/nature-landscape-black-and-white.jpg","alt":"Nature photography","metadata":{"camera":"Canon EOS R5","lens":"Canon RF 24-70mm f/2.8","focalLength":"24mm","aperture":"f/11","shutterSpeed":"1/500s","iso":"100","date":"May 12, 2024","location":"Yosemite, California"}}]</script>
+    <script id="page-translations" type="application/json">{"ca":{"collection.landscapes.title":"Paisatges","collection.landscapes.description":"La bellesa natural en monocrom"},"en":{"collection.landscapes.title":"Landscapes","collection.landscapes.description":"Natural beauty in monochrome"},"it":{"collection.landscapes.title":"Paesaggi","collection.landscapes.description":"La bellezza naturale in monocromo"}}</script>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. Tots els drets reservats.</p>
+      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. <span data-i18n="footer.rights">Tots els drets reservats.</span></p>
     </div>
   </footer>
 
@@ -75,6 +92,7 @@
     <div id="lb-counter"></div>
   </div>
 
+  <script src="/photos/i18n.js"></script>
   <script src="/photos/app.js"></script>
 </body>
 </html>

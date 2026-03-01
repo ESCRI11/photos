@@ -11,9 +11,18 @@
     <div class="nav-inner">
       <div class="nav-row">
         <a href="/photos/" class="nav-brand font-serif">Xavier Escrib&agrave; Montagut</a>
-        <div class="nav-links-desktop">
-          <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-          <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <div class="nav-end">
+          <div class="nav-links-desktop">
+            <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+            <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+          </div>
+          <div class="lang-selector">
+            <button class="lang-btn" data-lang="ca">CAT</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="it">IT</button>
+          </div>
         </div>
         <button id="menu-toggle" class="nav-menu-btn" aria-label="Obrir el menú">
           <span id="menu-icon-open"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></span>
@@ -21,8 +30,15 @@
         </button>
       </div>
       <div id="mobile-menu" class="nav-mobile">
-        <a href="/photos/" class="nav-link" data-nav-href="/photos/">Fotos</a>
-        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/">Àlbums</a>
+        <a href="/photos/" class="nav-link" data-nav-href="/photos/" data-i18n="nav.photos">Fotos</a>
+        <a href="/photos/topics/" class="nav-link" data-nav-href="/photos/topics/" data-i18n="nav.albums">Àlbums</a>
+        <div class="lang-selector lang-selector-mobile">
+          <button class="lang-btn" data-lang="ca">CAT</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -33,11 +49,11 @@
       <div class="collection-container">
         <a href="/photos/topics/" class="back-link">
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
-          Tornar als àlbums
+          <span data-i18n="back">Tornar als àlbums</span>
         </a>
         <div class="collection-header">
-          <h1 class="font-serif tracking-tight">Solothurn</h1>
-          <p class="tracking-wide text-muted">Viatje d&#39;estiu per Suissa Central</p>
+          <h1 class="font-serif tracking-tight" data-i18n="collection.solothurn-trip.title">Solothurn</h1>
+          <p class="tracking-wide text-muted" data-i18n="collection.solothurn-trip.description">Viatge d&#39;estiu per la Suïssa Central</p>
         </div>
         <div class="photo-grid">
           <div class="photo-item md:col-span-1 md:row-span-1 animate-fade-in-up" data-index="0" style="animation-delay:0ms" role="button" tabindex="0" aria-label="Obrir foto: Photography - DSC_0413.JPG">
@@ -52,11 +68,12 @@
       </div>
     </section>
     <script id="page-photos" type="application/json">[{"id":"oqwwnkhp7ema","src":"/photos/DSC_0413.JPG","alt":"Photography - DSC_0413.JPG","metadata":{"camera":"NIKON Z f","lens":"NIKKOR Z 40mm f/2","focalLength":"40.0 mm","aperture":"f/5.0","shutterSpeed":"1/400s","iso":"100","date":"July 18, 2025","location":"Solothurn, Suissa"}},{"id":"2cup2x30ityt","src":"/photos/DSC_0415.JPG","alt":"Photography - DSC_0415.JPG","metadata":{"camera":"NIKON Z f","lens":"NIKKOR Z 40mm f/2","focalLength":"40.0 mm","aperture":"f/5.0","shutterSpeed":"1/640s","iso":"100","date":"July 18, 2025","location":"Solothurn, Suissa"}}]</script>
+    <script id="page-translations" type="application/json">{"ca":{"collection.solothurn-trip.title":"Solothurn","collection.solothurn-trip.description":"Viatge d'estiu per la Suïssa Central"},"en":{"collection.solothurn-trip.title":"Solothurn","collection.solothurn-trip.description":"Summer trip through Central Switzerland"},"it":{"collection.solothurn-trip.title":"Solothurn","collection.solothurn-trip.description":"Viaggio estivo attraverso la Svizzera Centrale"}}</script>
   </main>
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. Tots els drets reservats.</p>
+      <p>&copy; 2026 Xavier Escrib&agrave; Montagut. <span data-i18n="footer.rights">Tots els drets reservats.</span></p>
     </div>
   </footer>
 
@@ -75,6 +92,7 @@
     <div id="lb-counter"></div>
   </div>
 
+  <script src="/photos/i18n.js"></script>
   <script src="/photos/app.js"></script>
 </body>
 </html>

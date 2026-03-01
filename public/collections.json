@@ -2,32 +2,72 @@
   "collections": [
     {
       "id": "tokyo-nights",
-      "title": "Tokyo Nights",
-      "description": "Urban exploration through the neon-lit streets of Tokyo",
+      "title": {
+        "ca": "Tokyo Nights",
+        "en": "Tokyo Nights",
+        "it": "Tokyo Nights"
+      },
+      "description": {
+        "ca": "Exploració urbana pels carrers de Tòquio",
+        "en": "Urban exploration through the neon-lit streets of Tokyo",
+        "it": "Esplorazione urbana tra le strade illuminate di Tokyo"
+      },
       "coverImage": "urban-street-photography-monochrome.jpg"
     },
     {
       "id": "portraits",
-      "title": "Portraits",
-      "description": "Intimate moments captured in black and white",
+      "title": {
+        "ca": "Retrats",
+        "en": "Portraits",
+        "it": "Ritratti"
+      },
+      "description": {
+        "ca": "Moments íntims capturats en blanc i negre",
+        "en": "Intimate moments captured in black and white",
+        "it": "Momenti intimi catturati in bianco e nero"
+      },
       "coverImage": "minimalist-black-and-white-portrait-photography.jpg"
     },
     {
       "id": "landscapes",
-      "title": "Landscapes",
-      "description": "Natural beauty in monochrome",
+      "title": {
+        "ca": "Paisatges",
+        "en": "Landscapes",
+        "it": "Paesaggi"
+      },
+      "description": {
+        "ca": "La bellesa natural en monocrom",
+        "en": "Natural beauty in monochrome",
+        "it": "La bellezza naturale in monocromo"
+      },
       "coverImage": "nature-landscape-black-and-white.jpg"
     },
     {
       "id": "architecture",
-      "title": "Architecture",
-      "description": "Geometric forms and structural elegance",
+      "title": {
+        "ca": "Arquitectura",
+        "en": "Architecture",
+        "it": "Architettura"
+      },
+      "description": {
+        "ca": "Formes geomètriques i elegància estructural",
+        "en": "Geometric forms and structural elegance",
+        "it": "Forme geometriche ed eleganza strutturale"
+      },
       "coverImage": "black-and-white-architecture.png"
     },
     {
       "id": "solothurn-trip",
-      "title": "Solothurn",
-      "description": "Viatje d'estiu per Suissa Central",
+      "title": {
+        "ca": "Solothurn",
+        "en": "Solothurn",
+        "it": "Solothurn"
+      },
+      "description": {
+        "ca": "Viatge d'estiu per la Suïssa Central",
+        "en": "Summer trip through Central Switzerland",
+        "it": "Viaggio estivo attraverso la Svizzera Centrale"
+      },
       "coverImage": "DSC_0413.JPG"
     }
   ]

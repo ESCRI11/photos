@@ -38,9 +38,18 @@ function layout(title, content, { activePage = 'work' } = {}) {
     <div class="nav-inner">
       <div class="nav-row">
         <a href="${BASE}/" class="nav-brand font-serif">Xavier Escrib&agrave; Montagut</a>
-        <div class="nav-links-desktop">
-          <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Fotos</a>
-          <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Àlbums</a>
+        <div class="nav-end">
+          <div class="nav-links-desktop">
+            <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/" data-i18n="nav.photos">Fotos</a>
+            <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/" data-i18n="nav.albums">Àlbums</a>
+          </div>
+          <div class="lang-selector">
+            <button class="lang-btn" data-lang="ca">CAT</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="en">EN</button>
+            <span class="lang-sep">·</span>
+            <button class="lang-btn" data-lang="it">IT</button>
+          </div>
         </div>
         <button id="menu-toggle" class="nav-menu-btn" aria-label="Obrir el menú">
           <span id="menu-icon-open">${icons.Menu}</span>
@@ -48,8 +57,15 @@ function layout(title, content, { activePage = 'work' } = {}) {
         </button>
       </div>
       <div id="mobile-menu" class="nav-mobile">
-        <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/">Fotos</a>
-        <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/">Àlbums</a>
+        <a href="${BASE}/" class="nav-link" data-nav-href="${BASE}/" data-i18n="nav.photos">Fotos</a>
+        <a href="${BASE}/topics/" class="nav-link" data-nav-href="${BASE}/topics/" data-i18n="nav.albums">Àlbums</a>
+        <div class="lang-selector lang-selector-mobile">
+          <button class="lang-btn" data-lang="ca">CAT</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="en">EN</button>
+          <span class="lang-sep">·</span>
+          <button class="lang-btn" data-lang="it">IT</button>
+        </div>
       </div>
     </div>
   </nav>
@@ -60,7 +76,7 @@ function layout(title, content, { activePage = 'work' } = {}) {
 
   <footer>
     <div class="footer-inner">
-      <p>&copy; ${year} Xavier Escrib&agrave; Montagut. Tots els drets reservats.</p>
+      <p>&copy; ${year} Xavier Escrib&agrave; Montagut. <span data-i18n="footer.rights">Tots els drets reservats.</span></p>
     </div>
   </footer>
 
@@ -79,6 +95,7 @@ function layout(title, content, { activePage = 'work' } = {}) {
     <div id="lb-counter"></div>
   </div>
 
+  <script src="${BASE}/i18n.js"></script>
   <script src="${BASE}/app.js"></script>
 </body>
 </html>`
@@ -125,6 +142,19 @@ function photoItem(photo, index) {
     </div>`
 }
 
+function translationsScript(cols) {
+  const langs = ['ca', 'en', 'it']
+  const out = {}
+  langs.forEach(function (lang) {
+    out[lang] = {}
+    cols.forEach(function (col) {
+      out[lang]['collection.' + col.id + '.title']       = col.title[lang]       || col.title.ca
+      out[lang]['collection.' + col.id + '.description'] = col.description[lang] || col.description.ca
+    })
+  })
+  return `<script id="page-translations" type="application/json">${JSON.stringify(out)}</script>`
+}
+
 function photosScript(photos) {
   const data = photos.map(function (p) {
     return {
@@ -149,7 +179,7 @@ function generateIndex(photos) {
   const content = `
     <section class="gallery-section">
       <div class="gallery-container">
-        <h2 class="font-serif">Les meves fotos</h2>
+        <h2 class="font-serif" data-i18n="gallery.heading">Les meves fotos</h2>
         <div class="photo-grid">
           ${grid}
         </div>
@@ -166,11 +196,11 @@ function generateIndex(photos) {
 function generateTopics(collections, photos) {
   const cards = collections.map(function (col) {
     return `<a href="${BASE}/collections/${col.id}/" class="collection-card">
-        <img src="${photoSrc(col.coverImage)}" alt="${escapeHtml(col.title)}" loading="lazy">
+        <img src="${photoSrc(col.coverImage)}" alt="${escapeHtml(col.title.ca)}" loading="lazy">
         <div class="collection-card-overlay"></div>
         <div class="collection-card-text">
-          <h3 class="font-serif">${escapeHtml(col.title)}</h3>
-          <p>${escapeHtml(col.description)}</p>
+          <h3 class="font-serif" data-i18n="collection.${col.id}.title">${escapeHtml(col.title.ca)}</h3>
+          <p data-i18n="collection.${col.id}.description">${escapeHtml(col.description.ca)}</p>
         </div>
       </a>`
   }).join('\n      ')
@@ -183,7 +213,8 @@ function generateTopics(collections, photos) {
         </div>
       </div>
     </section>
-    <script id="page-photos" type="application/json">[]</script>`
+    <script id="page-photos" type="application/json">[]</script>
+    ${translationsScript(collections)}`
 
   write(
     path.join(DOCS_DIR, 'topics', 'index.html'),
@@ -204,22 +235,23 @@ function generateCollection(col, photos) {
       <div class="collection-container">
         <a href="${BASE}/topics/" class="back-link">
           ${icons.ArrowLeft}
-          Tornar als àlbums
+          <span data-i18n="back">Tornar als àlbums</span>
         </a>
         <div class="collection-header">
-          <h1 class="font-serif tracking-tight">${escapeHtml(col.title)}</h1>
-          <p class="tracking-wide text-muted">${escapeHtml(col.description)}</p>
+          <h1 class="font-serif tracking-tight" data-i18n="collection.${col.id}.title">${escapeHtml(col.title.ca)}</h1>
+          <p class="tracking-wide text-muted" data-i18n="collection.${col.id}.description">${escapeHtml(col.description.ca)}</p>
         </div>
         <div class="photo-grid">
           ${grid}
         </div>
       </div>
     </section>
-    ${photosScript(colPhotos)}`
+    ${photosScript(colPhotos)}
+    ${translationsScript([col])}`
 
   write(
     path.join(DOCS_DIR, 'collections', col.id, 'index.html'),
-    layout(`${col.title} — Xavier Escribà Montagut`, content, { activePage: 'topics' })
+    layout(`${col.title.ca} — Xavier Escribà Montagut`, content, { activePage: 'topics' })
   )
 }
 
@@ -240,8 +272,9 @@ function main() {
   // Copy static assets
   console.log('\nCopying assets...')
   copyFile(path.join(SRC_DIR, 'styles.css'), path.join(DOCS_DIR, 'styles.css'))
+  copyFile(path.join(SRC_DIR, 'i18n.js'),    path.join(DOCS_DIR, 'i18n.js'))
   copyFile(path.join(SRC_DIR, 'app.js'),     path.join(DOCS_DIR, 'app.js'))
-  console.log('  copied styles.css, app.js')
+  console.log('  copied styles.css, i18n.js, app.js')
 
   // Copy images from public/
   const imageExts = /\.(jpg|jpeg|png|gif|webp|avif|svg)$/i
